@@ -109,6 +109,9 @@ print("Sending email...")
 if email_packages_that_need_updates == "":
     email_packages_that_need_updates = "None!"
 
+if email_packages_that_have_jira_issues == "":
+    email_packages_that_have_jira_issues = "None!"
+
 if email_packages_with_issues == "":
     email_packages_with_issues = "None!"
 
