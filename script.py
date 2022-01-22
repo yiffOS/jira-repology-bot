@@ -18,6 +18,8 @@ load_dotenv()
 
 date = datetime.datetime.today().strftime('%Y-%m-%d')
 
+ignored_packages = os.getenv('IGNORED_PACKAGES').split(',')
+
 # SMTP Setup and Template
 
 smtp_server = os.getenv('SMTP_SERVER')
@@ -54,6 +56,9 @@ complete_response = requests.get(complete_query).json()
 complete_keys = list(complete_response.keys())
 
 for i in range(len(complete_keys)):
+    if complete_keys[i] in ignored_packages:
+        continue
+    
     package_name = "";
     yiffos_version = "";
     newest_version = "";
